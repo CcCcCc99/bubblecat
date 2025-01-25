@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw4j5n1y67siy"]
+
+[ext_resource type="PackedScene" uid="uid://c886l8ey4q4d7" path="res://scenes/obstacle/obstacle.tscn" id="1_bnkwn"]
+[ext_resource type="Script" path="res://scenes/obstacle/barchetta/barchetta.gd" id="2_u2bx7"]
+[ext_resource type="Texture2D" uid="uid://drwxjlvwq30q8" path="res://assets/sprites/barchetta.png" id="3_0h8wx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni31u"]
+size = Vector2(36, 21)
+
+[node name="Barchetta" instance=ExtResource("1_bnkwn")]
+script = ExtResource("2_u2bx7")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_0h8wx")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_ni31u")

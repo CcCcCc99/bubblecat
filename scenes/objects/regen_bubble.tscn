@@ -1,0 +1,197 @@
+[gd_scene load_steps=40 format=3 uid="uid://cb64cjre247hx"]
+
+[ext_resource type="Script" path="res://scenes/objects/regen_bubble.gd" id="1_70nh2"]
+[ext_resource type="Texture2D" uid="uid://cbjf4r3amfrcc" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280000.png" id="2_3js7s"]
+[ext_resource type="Texture2D" uid="uid://c60g7m4ocbod3" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280001.png" id="3_jfi5a"]
+[ext_resource type="Texture2D" uid="uid://dmrckmrhhwvuh" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280002.png" id="4_od4lq"]
+[ext_resource type="Texture2D" uid="uid://dn8gnvw0mligd" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280003.png" id="5_g4yri"]
+[ext_resource type="Texture2D" uid="uid://cguoj13qbg5x2" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280004.png" id="6_yqws6"]
+[ext_resource type="Texture2D" uid="uid://d4fejdcuc8j1b" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280005.png" id="7_1ijk8"]
+[ext_resource type="Texture2D" uid="uid://bxigvnsehif2v" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280006.png" id="8_xgh4p"]
+[ext_resource type="Texture2D" uid="uid://wslt2ggbqss8" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280007.png" id="9_gtnin"]
+[ext_resource type="Texture2D" uid="uid://c6ojr5is0sco7" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280008.png" id="10_sek1n"]
+[ext_resource type="Texture2D" uid="uid://0fiip48p3cut" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280009.png" id="11_dwqum"]
+[ext_resource type="Texture2D" uid="uid://cf5ceihpgyods" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280010.png" id="12_11tdk"]
+[ext_resource type="Texture2D" uid="uid://bugo1rxr242dl" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280011.png" id="13_fd2e6"]
+[ext_resource type="Texture2D" uid="uid://bq1s5v275706x" path="res://assets/sprites/Bollicineanimation/Bollicine0000.png" id="14_hrwhc"]
+[ext_resource type="Texture2D" uid="uid://bixwyyck3xwwq" path="res://assets/sprites/Bollicineanimation/Bollicine0001.png" id="15_5uyu6"]
+[ext_resource type="Texture2D" uid="uid://bxwgfiqpkjg8g" path="res://assets/sprites/Bollicineanimation/Bollicine0002.png" id="16_6w7n7"]
+[ext_resource type="Texture2D" uid="uid://bm5dd2e22s1ts" path="res://assets/sprites/Bollicineanimation/Bollicine0003.png" id="17_rt5us"]
+[ext_resource type="Texture2D" uid="uid://bevq3sdcxicyh" path="res://assets/sprites/Bollicineanimation/Bollicine0004.png" id="18_v6ial"]
+[ext_resource type="Texture2D" uid="uid://b0gw2ft3hktis" path="res://assets/sprites/Bollicineanimation/Bollicine0005.png" id="19_bmgy6"]
+[ext_resource type="Texture2D" uid="uid://c1or1kis7pk1" path="res://assets/sprites/Bollicineanimation/Bollicine0006.png" id="20_ttndl"]
+[ext_resource type="Texture2D" uid="uid://csfhcyxlpstum" path="res://assets/sprites/Bollicineanimation/Bollicine0007.png" id="21_lfk6x"]
+[ext_resource type="Texture2D" uid="uid://di2yvectqvus6" path="res://assets/sprites/Bollicineanimation/Bollicine0008.png" id="22_b0gtp"]
+[ext_resource type="Texture2D" uid="uid://c3oo7k86pirab" path="res://assets/sprites/Bollicineanimation/Bollicine0009.png" id="23_eyjst"]
+[ext_resource type="Texture2D" uid="uid://qn3uq1y6sdmn" path="res://assets/sprites/Bollicineanimation/Bollicine0010.png" id="24_bif8v"]
+[ext_resource type="Texture2D" uid="uid://byeqxnbma0cyx" path="res://assets/sprites/Bollicineanimation/Bollicine0011.png" id="25_gax6a"]
+[ext_resource type="Texture2D" uid="uid://d0psdcdbk5hk7" path="res://assets/sprites/Bollicineanimation/Bollicine0012.png" id="26_7lx5a"]
+[ext_resource type="Texture2D" uid="uid://bjynl6uuk4w13" path="res://assets/sprites/Bollicineanimation/Bollicine0014.png" id="28_ip3xq"]
+[ext_resource type="Texture2D" uid="uid://bo6fdemejwnoi" path="res://assets/sprites/Bollicineanimation/Bollicine0015.png" id="29_biq8g"]
+[ext_resource type="Texture2D" uid="uid://dxbpkkptia8xl" path="res://assets/sprites/Bollicineanimation/Bollicine0016.png" id="30_a2tly"]
+[ext_resource type="Texture2D" uid="uid://ndirr81bkemc" path="res://assets/sprites/Bollicineanimation/Bollicine0017.png" id="31_mevil"]
+[ext_resource type="Texture2D" uid="uid://bcgj8jliek5d7" path="res://assets/sprites/Bollicineanimation/Bollicine0018.png" id="32_tvrvg"]
+[ext_resource type="Texture2D" uid="uid://bmh350mmgt4x2" path="res://assets/sprites/Bollicineanimation/Bollicine0019.png" id="33_0y4ga"]
+[ext_resource type="Texture2D" uid="uid://c6uonsc5xxyk5" path="res://assets/sprites/Bollicineanimation/Bollicine0020.png" id="34_y0c3k"]
+[ext_resource type="Texture2D" uid="uid://dhnrwkpe0apch" path="res://assets/sprites/Bollicineanimation/Bollicine0021.png" id="35_wyvuw"]
+[ext_resource type="Texture2D" uid="uid://bis6os36qdad" path="res://assets/sprites/Bollicineanimation/Bollicine0022.png" id="36_7ecbk"]
+[ext_resource type="Texture2D" uid="uid://3dd183k501op" path="res://assets/sprites/Bollicineanimation/Bollicine0023.png" id="37_tg3jo"]
+[ext_resource type="Texture2D" uid="uid://bpahlhbcie5kp" path="res://assets/sprites/Bollicineanimation/Bollicine0024.png" id="38_dygpj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxjfk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3js7s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3js7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jfi5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_od4lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g4yri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yqws6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1ijk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xgh4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gtnin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sek1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dwqum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_11tdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fd2e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fd2e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fd2e6")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_hrwhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5uyu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6w7n7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rt5us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_v6ial")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bmgy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ttndl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lfk6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_b0gtp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_eyjst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bif8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gax6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7lx5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ip3xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_biq8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_a2tly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_mevil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_tvrvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_0y4ga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_y0c3k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_wyvuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_7ecbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_tg3jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_dygpj")
+}],
+"loop": true,
+"name": &"wait",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wkkj6"]
+radius = 41.0
+
+[node name="RegenBubble" type="Area2D" groups=["RegenBubble"]]
+collision_layer = 2
+script = ExtResource("1_70nh2")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 4.48)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_gxjfk")
+animation = &"pop"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wkkj6")
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

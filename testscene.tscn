@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://d341rd2nhfiku"]
+
+[ext_resource type="PackedScene" uid="uid://crugmwwi44o31" path="res://scenes/player/player.tscn" id="1_6r8lm"]
+[ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_ckjmq"]
+[ext_resource type="PackedScene" uid="uid://cb64cjre247hx" path="res://scenes/objects/regen_bubble.tscn" id="2_ied3k"]
+[ext_resource type="PackedScene" uid="uid://bi6vqwo73ppeb" path="res://scenes/objects/points/skill_point.tscn" id="3_tu30h"]
+[ext_resource type="PackedScene" uid="uid://bxi6vvu260ajj" path="res://scenes/environment.tscn" id="4_uin0a"]
+[ext_resource type="PackedScene" uid="uid://dw4j5n1y67siy" path="res://scenes/obstacle/barchetta/barchetta.tscn" id="6_o8o8p"]
+[ext_resource type="PackedScene" uid="uid://c43gjk7v4qevv" path="res://scenes/hud.tscn" id="7_2xgdx"]
+
+[node name="testscene" type="Node"]
+script = ExtResource("1_ckjmq")
+player_scene = ExtResource("1_6r8lm")
+skill_point_scene = ExtResource("3_tu30h")
+obstacle_scene = ExtResource("6_o8o8p")
+
+[node name="Environment" parent="." instance=ExtResource("4_uin0a")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="RegenBubble" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(1031, -214)
+
+[node name="RegenBubble2" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(535, 1242)
+
+[node name="RegenBubble3" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-1454, 783)
+
+[node name="RegenBubble4" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-773, -359)
+
+[node name="RegenBubble5" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-2393, -1174)
+
+[node name="RegenBubble6" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-2393, -1174)
+
+[node name="RegenBubble7" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(2551, 1194)
+
+[node name="RegenBubble8" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-3001, -70)
+
+[node name="RegenBubble9" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(1550, 806)
+
+[node name="RegenBubble11" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-628, 1372)
+
+[node name="RegenBubble12" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-2617, 1434)
+
+[node name="RegenBubble13" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(759, -1286)
+
+[node name="RegenBubble14" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(2364, -1308)
+
+[node name="RegenBubble15" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(2601, 116)
+
+[node name="RegenBubble16" parent="Node2D" instance=ExtResource("2_ied3k")]
+position = Vector2(-1162, -1375)
+
+[node name="SpawnPointCooldown" type="Timer" parent="."]
+wait_time = 40.0
+autostart = true
+
+[node name="SpawnobstacleCooldown" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="HUD" parent="." instance=ExtResource("7_2xgdx")]
+
+[connection signal="timeout" from="SpawnPointCooldown" to="." method="_on_spawn_point_cooldown_timeout"]
+[connection signal="timeout" from="SpawnobstacleCooldown" to="." method="_on_spawn_obstacle_cooldown_timeout"]

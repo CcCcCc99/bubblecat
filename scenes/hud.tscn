@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://c43gjk7v4qevv"]
+
+[ext_resource type="Texture2D" uid="uid://knogjkh4bn7v" path="res://assets/hud/Barraexp.png" id="1_38ndl"]
+[ext_resource type="Texture2D" uid="uid://cbt15o4cqd4ra" path="res://icon.svg" id="1_nfh0l"]
+[ext_resource type="Texture2D" uid="uid://ba1rr4y2weqsu" path="res://assets/hud/Contenuto1.png" id="2_px4ho"]
+[ext_resource type="Script" path="res://scenes/minimappa.gd" id="3_r285k"]
+[ext_resource type="Texture2D" uid="uid://2ygeh0y841iw" path="res://assets/minimappa/minimappa_frame.png" id="4_3b7qj"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -163.0
+offset_right = 705.0
+offset_bottom = -88.0
+grow_vertical = 0
+value = 51.0
+nine_patch_stretch = true
+texture_over = ExtResource("1_38ndl")
+texture_progress = ExtResource("2_px4ho")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -214.0
+offset_right = 96.667
+offset_bottom = -43.333
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_nfh0l")
+
+[node name="Minimappa" type="NinePatchRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -320.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_3b7qj")
+script = ExtResource("3_r285k")
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -421.0
+offset_top = 21.0
+offset_right = -21.0
+offset_bottom = 121.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 72
+text = "999999999
+"

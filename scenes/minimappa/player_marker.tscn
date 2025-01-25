@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwv4t4pyw7agp"]
+
+[ext_resource type="Texture2D" uid="uid://b6sskgp5ysnd2" path="res://assets/minimappa/player.png" id="1_w0llh"]
+
+[node name="PlayerMarker" type="Sprite2D"]
+position = Vector2(303, 94)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_w0llh")

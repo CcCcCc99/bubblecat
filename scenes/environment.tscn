@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxi6vvu260ajj"]
+
+[ext_resource type="Material" uid="uid://cwm020e35njal" path="res://shaders/water_material.tres" id="1_hvf1e"]
+[ext_resource type="Texture2D" uid="uid://dbqcg7hif7p3v" path="res://assets/vasca.png" id="2_or50t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s02bi"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_15wv5"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8oe5a"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j4fin"]
+normal = Vector2(0, 1)
+
+[node name="Environment" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_hvf1e")
+texture = ExtResource("2_or50t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-3427, 0)
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_s02bi")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(3427, 0)
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_15wv5")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(0, 1862)
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_8oe5a")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(0, -1862)
+collision_layer = 8
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_j4fin")
