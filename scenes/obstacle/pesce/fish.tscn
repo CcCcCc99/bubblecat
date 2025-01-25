@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccc43hi0w325i"]
+
+[ext_resource type="PackedScene" uid="uid://c886l8ey4q4d7" path="res://scenes/obstacle/obstacle.tscn" id="1_wvp24"]
+[ext_resource type="Script" path="res://scenes/obstacle/pesce/fish.gd" id="2_j2s3v"]
+[ext_resource type="Texture2D" uid="uid://f4ftw2hkg8f7" path="res://assets/sprites/pesce.png" id="2_kxkte"]
+
+[node name="fish" instance=ExtResource("1_wvp24")]
+script = ExtResource("2_j2s3v")
+newspeed = 200.0
+damage = 5
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kxkte")
