@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d341rd2nhfiku"]
+[gd_scene load_steps=9 format=3 uid="uid://d341rd2nhfiku"]
 
 [ext_resource type="PackedScene" uid="uid://crugmwwi44o31" path="res://scenes/player/player.tscn" id="1_6r8lm"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_ckjmq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxi6vvu260ajj" path="res://scenes/environment.tscn" id="4_uin0a"]
 [ext_resource type="PackedScene" uid="uid://dw4j5n1y67siy" path="res://scenes/obstacle/barchetta/barchetta.tscn" id="6_o8o8p"]
 [ext_resource type="PackedScene" uid="uid://c43gjk7v4qevv" path="res://scenes/hud.tscn" id="7_2xgdx"]
+[ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
 
 [node name="testscene" type="Node"]
 script = ExtResource("1_ckjmq")
@@ -72,6 +73,12 @@ wait_time = 6.0
 autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("7_2xgdx")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5ui3x")
+autoplay = true
+bus = &"Sound"
+parameters/looping = true
 
 [connection signal="timeout" from="SpawnPointCooldown" to="." method="_on_spawn_point_cooldown_timeout"]
 [connection signal="timeout" from="SpawnobstacleCooldown" to="." method="_on_spawn_obstacle_cooldown_timeout"]
