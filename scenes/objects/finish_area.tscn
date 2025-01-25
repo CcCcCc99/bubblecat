@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d31jyuv5g3pg6"]
+
+[ext_resource type="Script" path="res://scenes/objects/finish_area.gd" id="1_j86sk"]
+[ext_resource type="Texture2D" uid="uid://bst3bi48cj115" path="res://assets/sprites/target/Punto_di_arrivo.png" id="1_oo2ba"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfggf"]
+radius = 30.0617
+
+[node name="FinishArea" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_j86sk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oo2ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 22.075)
+shape = SubResource("CircleShape2D_rfggf")
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

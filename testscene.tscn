@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://by4sltlkgk4i2" path="res://scenes/skills/armatura.tscn" id="7_078fk"]
 [ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
 [ext_resource type="PackedScene" uid="uid://ccc43hi0w325i" path="res://scenes/obstacle/pesce/fish.tscn" id="9_xamc0"]
+[ext_resource type="PackedScene" uid="uid://dqh4n7bvvjup0" path="res://scenes/objects/start_line.tscn" id="8_j8xm8"]
+[ext_resource type="PackedScene" uid="uid://d31jyuv5g3pg6" path="res://scenes/objects/finish_area.tscn" id="9_3ioum"]
 
 [node name="testscene" type="Node"]
 script = ExtResource("1_ckjmq")
@@ -21,6 +23,15 @@ obstacle_scene = ExtResource("6_o8o8p")
 [node name="Environment" parent="." instance=ExtResource("4_uin0a")]
 
 [node name="OxygenSources" type="Node2D" parent="."]
+[node name="TargetSpace" type="Node2D" parent="."]
+
+[node name="StartLine" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
+position = Vector2(-242, 179)
+
+[node name="FinishArea" parent="TargetSpace/StartLine" instance=ExtResource("9_3ioum")]
+position = Vector2(544, -262)
+
+[node name="Node2D" type="Node2D" parent="."]
 
 [node name="RegenBubble" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(1031, -214)
