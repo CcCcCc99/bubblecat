@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rc82klf8a12f"]
+
+[ext_resource type="Texture2D" uid="uid://b0m2l8d7b7wni" path="res://assets/skills/armatura_attiva.png" id="1_04nj4"]
+
+[node name="Armor" type="Sprite2D"]
+position = Vector2(0, 7)
+scale = Vector2(0.254219, 0.254219)
+texture = ExtResource("1_04nj4")

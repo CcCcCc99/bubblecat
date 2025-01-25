@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://by4sltlkgk4i2"]
+
+[ext_resource type="Texture2D" uid="uid://ctsmvv7ia6fmk" path="res://assets/skills/armatura.png" id="1_7pbjv"]
+[ext_resource type="Script" path="res://scenes/skills/armatura.gd" id="1_almhe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ku2ll"]
+radius = 60.0
+
+[node name="Armatura" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_almhe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, -1)
+texture = ExtResource("1_7pbjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ku2ll")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

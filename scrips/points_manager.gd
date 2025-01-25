@@ -1,5 +1,7 @@
 extends Node
 
+var armor_enabled: bool = true
+
 signal points_updated
 
 var points: int = 0:

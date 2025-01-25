@@ -2,6 +2,7 @@ extends Node
 
 @export var player_scene: PackedScene
 @export var skill_point_scene: PackedScene
+@export var skill_scene: PackedScene
 @export var obstacle_scene: PackedScene
 var player: Player
 
@@ -9,12 +10,15 @@ var player: Player
 @export var max_spawn_distance: int = 1200
 
 @export var max_points_in_map: int = 50
+@export var max_skills_in_map: int = 50
 
 var points_instances = []
 var obstacles_instances = []
+var skills_instances = []
 
-@onready var map = $Node2D
+@onready var map: Node2D = $OxygenSources
 @onready var minimap = $HUD/Minimappa
+@onready var skills: Node2D = $Skills
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,6 +43,13 @@ func _on_spawn_point_cooldown_timeout() -> void:
 		var point = spawn_random_in_radius(skill_point_scene, player.position, rand_range)
 		map.add_child(point)
 		points_instances.append(point)
+		
+func _on_spawn_skill_cooldown_timeout() -> void:
+	if PointsManager.armor_enabled and skills_instances.size() < max_skills_in_map:
+		var rand_range = randi() % max_spawn_distance + min_spawn_distance
+		var skill = spawn_random_in_radius(skill_point_scene, player.position, rand_range)
+		map.add_child(skill)
+		skills_instances.append(skill)
 
 func _on_spawn_obstacle_cooldown_timeout() -> void:
 	var rand_range = float(randi() % max_spawn_distance + min_spawn_distance) / 2

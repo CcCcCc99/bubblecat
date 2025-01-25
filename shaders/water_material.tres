@@ -274,7 +274,7 @@ void fragment() {
 	vec3 water_color = vec3(water(uv * tile, vec3(0,1,0), TIME * distortion_speed));
 	vec4 texture_color = texture(TEXTURE, UV);
 	if (texture_color.r == 1.) {
-		COLOR = vec4(water_color, texture_color.a);
+		COLOR = vec4(water_color, texture_color.a - 0.2);
 	} else {
 		COLOR = texture_color;
 	}
@@ -282,9 +282,9 @@ void fragment() {
 
 [resource]
 shader = SubResource("Shader_l1w5c")
-shader_parameter/WATER_COL = Color(0.670555, 0.739823, 0.873451, 1)
-shader_parameter/WATER2_COL = Color(0.391899, 0.634354, 0.748282, 1)
-shader_parameter/FOAM_COL = Color(0.968627, 1, 0.941176, 1)
+shader_parameter/WATER_COL = Color(0.671, 0.741, 0.875, 1)
+shader_parameter/WATER2_COL = Color(0.392, 0.634, 0.748, 1)
+shader_parameter/FOAM_COL = Color(0.969, 1, 0.941, 1)
 shader_parameter/distortion_speed = 1.975
 shader_parameter/tile = Vector2(25, 25)
 shader_parameter/wave_speed = 2.3

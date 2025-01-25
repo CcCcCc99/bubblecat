@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxi6vvu260ajj" path="res://scenes/environment.tscn" id="4_uin0a"]
 [ext_resource type="PackedScene" uid="uid://dw4j5n1y67siy" path="res://scenes/obstacle/barchetta/barchetta.tscn" id="6_o8o8p"]
 [ext_resource type="PackedScene" uid="uid://c43gjk7v4qevv" path="res://scenes/hud.tscn" id="7_2xgdx"]
+[ext_resource type="PackedScene" uid="uid://by4sltlkgk4i2" path="res://scenes/skills/armatura.tscn" id="7_078fk"]
 [ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
 [ext_resource type="PackedScene" uid="uid://ccc43hi0w325i" path="res://scenes/obstacle/pesce/fish.tscn" id="9_xamc0"]
 
@@ -14,56 +15,59 @@
 script = ExtResource("1_ckjmq")
 player_scene = ExtResource("1_6r8lm")
 skill_point_scene = ExtResource("3_tu30h")
+skill_scene = ExtResource("7_078fk")
 obstacle_scene = ExtResource("6_o8o8p")
 
 [node name="Environment" parent="." instance=ExtResource("4_uin0a")]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="OxygenSources" type="Node2D" parent="."]
 
-[node name="RegenBubble" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(1031, -214)
 
-[node name="RegenBubble2" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble2" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(535, 1242)
 
-[node name="RegenBubble3" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble3" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-1454, 783)
 
-[node name="RegenBubble4" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble4" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-773, -359)
 
-[node name="RegenBubble5" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble5" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-2393, -1174)
 
-[node name="RegenBubble6" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble6" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-2393, -1174)
 
-[node name="RegenBubble7" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble7" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(2551, 1194)
 
-[node name="RegenBubble8" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble8" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-3001, -70)
 
-[node name="RegenBubble9" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble9" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(1550, 806)
 
-[node name="RegenBubble11" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble11" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-628, 1372)
 
-[node name="RegenBubble12" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble12" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-2617, 1434)
 
-[node name="RegenBubble13" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble13" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(759, -1286)
 
-[node name="RegenBubble14" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble14" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(2364, -1308)
 
-[node name="RegenBubble15" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble15" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(2601, 116)
 
-[node name="RegenBubble16" parent="Node2D" instance=ExtResource("2_ied3k")]
+[node name="RegenBubble16" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-1162, -1375)
+
+[node name="Skills" type="Node2D" parent="."]
 
 [node name="SpawnPointCooldown" type="Timer" parent="."]
 wait_time = 40.0
@@ -71,6 +75,10 @@ autostart = true
 
 [node name="SpawnobstacleCooldown" type="Timer" parent="."]
 wait_time = 6.0
+autostart = true
+
+[node name="SpawnSkillsCooldown" type="Timer" parent="."]
+wait_time = 30.0
 autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("7_2xgdx")]
@@ -86,5 +94,9 @@ position = Vector2(823, 429)
 newspeed = 200.0
 damage = 5
 
+[node name="Armatura" parent="." instance=ExtResource("7_078fk")]
+position = Vector2(404, 254)
+
 [connection signal="timeout" from="SpawnPointCooldown" to="." method="_on_spawn_point_cooldown_timeout"]
 [connection signal="timeout" from="SpawnobstacleCooldown" to="." method="_on_spawn_obstacle_cooldown_timeout"]
+[connection signal="timeout" from="SpawnSkillsCooldown" to="." method="_on_spawn_skill_cooldown_timeout"]
