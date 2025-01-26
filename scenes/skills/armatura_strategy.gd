@@ -12,6 +12,8 @@ func _ready() -> void:
 	player.bubble.add_child(armor_sprite_node)
 
 func _on_timer_timeout() -> void:
+	# se muori con l'invulnerabilità a dosso è un problema
+	# da sistemare
 	player.bubble.invulnerable = false
 	armor_sprite_node.queue_free()
 	queue_free()

@@ -273,7 +273,7 @@ void fragment() {
 
 	vec3 water_color = vec3(water(uv * tile, vec3(0,1,0), TIME * distortion_speed));
 	vec4 texture_color = texture(TEXTURE, UV);
-	if (texture_color.r == 1. && texture_color.g == 0.0 && texture_color.b == 0.0) {
+	if (texture_color.r == 1.) {
 		COLOR = vec4(water_color, texture_color.a - 0.2);
 	} else {
 		COLOR = texture_color;

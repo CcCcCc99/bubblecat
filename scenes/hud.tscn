@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://c43gjk7v4qevv"]
+[gd_scene load_steps=7 format=3 uid="uid://c43gjk7v4qevv"]
 
 [ext_resource type="Texture2D" uid="uid://knogjkh4bn7v" path="res://assets/hud/Barraexp.png" id="1_38ndl"]
 [ext_resource type="Texture2D" uid="uid://cbt15o4cqd4ra" path="res://icon.svg" id="1_nfh0l"]
+[ext_resource type="Script" path="res://scenes/hud.gd" id="1_xf4fx"]
 [ext_resource type="Texture2D" uid="uid://ba1rr4y2weqsu" path="res://assets/hud/Contenuto1.png" id="2_px4ho"]
 [ext_resource type="Script" path="res://scenes/minimappa.gd" id="3_r285k"]
 [ext_resource type="Texture2D" uid="uid://2ygeh0y841iw" path="res://assets/minimappa/minimappa_frame.png" id="4_3b7qj"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_xf4fx")
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 anchors_preset = 2
@@ -63,3 +65,4 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 72
 text = "999999999
 "
+horizontal_alignment = 2
