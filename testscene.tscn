@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d341rd2nhfiku"]
+[gd_scene load_steps=16 format=3 uid="uid://d341rd2nhfiku"]
 
 [ext_resource type="PackedScene" uid="uid://crugmwwi44o31" path="res://scenes/player/player.tscn" id="1_6r8lm"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_ckjmq"]
@@ -11,9 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
 [ext_resource type="PackedScene" uid="uid://dqh4n7bvvjup0" path="res://scenes/objects/start_line.tscn" id="8_j8xm8"]
 [ext_resource type="PackedScene" uid="uid://d31jyuv5g3pg6" path="res://scenes/objects/finish_area.tscn" id="9_3ioum"]
-[ext_resource type="PackedScene" uid="uid://cl068uxeh383h" path="res://scenes/skills/bubble_gun.tscn" id="12_ustka"]
 [ext_resource type="AudioStream" uid="uid://l07t5rgiqr74" path="res://assets/sound/MeowSphereGameOver.mp3" id="11_cg32i"]
-[ext_resource type="PackedScene" uid="uid://dd7rd2a0m1k6w" path="res://game_over_menu.tscn" id="12_e6hg8"]
+[ext_resource type="PackedScene" uid="uid://cpt2uyj8dopny" path="res://game_over_menu.tscn" id="12_e6hg8"]
+[ext_resource type="PackedScene" uid="uid://cre08sbbcdaoq" path="res://scenes/skills/bubble_gun.tscn" id="12_ustka"]
 [ext_resource type="AudioStream" uid="uid://bjcv0mn263hji" path="res://assets/sound/MeowSphereDying.mp3" id="12_vqrob"]
 
 [node name="testscene" type="Node"]
@@ -77,10 +77,34 @@ position = Vector2(-1162, -1375)
 [node name="TargetSpace" type="Node2D" parent="."]
 
 [node name="StartLine" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
-position = Vector2(-242, 179)
+position = Vector2(-1063, 1027)
 
 [node name="FinishArea" parent="TargetSpace/StartLine" instance=ExtResource("9_3ioum")]
-position = Vector2(544, -262)
+position = Vector2(1607, -1258)
+
+[node name="StartLine5" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
+position = Vector2(1114, -1029)
+
+[node name="FinishArea" parent="TargetSpace/StartLine5" instance=ExtResource("9_3ioum")]
+position = Vector2(-872, 2330)
+
+[node name="StartLine4" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
+position = Vector2(-2086, -736)
+
+[node name="FinishArea" parent="TargetSpace/StartLine4" instance=ExtResource("9_3ioum")]
+position = Vector2(-46, 1645)
+
+[node name="StartLine3" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
+position = Vector2(1695, 1404)
+
+[node name="FinishArea" parent="TargetSpace/StartLine3" instance=ExtResource("9_3ioum")]
+position = Vector2(-2725, -1312)
+
+[node name="StartLine2" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
+position = Vector2(-512, -884)
+
+[node name="FinishArea" parent="TargetSpace/StartLine2" instance=ExtResource("9_3ioum")]
+position = Vector2(2764, -20)
 
 [node name="Skills" type="Node2D" parent="."]
 
@@ -91,11 +115,11 @@ autostart = true
 [node name="Skills" type="Node2D" parent="SpawnPointCooldown"]
 
 [node name="SpawnobstacleCooldown" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 4.0
 autostart = true
 
 [node name="SpawnSkillsCooldown" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 13.0
 autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("7_2xgdx")]
@@ -117,6 +141,7 @@ bus = &"Sound"
 parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="GameOverMenu" parent="CanvasLayer" groups=["gameovermenu"] instance=ExtResource("12_e6hg8")]
 visible = false

@@ -7,6 +7,11 @@ signal map_enabled
 signal skill_points_updated
 signal score_updated
 
+func restart():
+	power_up_index = 0
+	skill_points = 0
+	score = 0
+
 var power_ups = [
 	Callable(self, "enable_minimap"),
 	Callable(self, "enable_armor"),

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://duissgv6i18ms"]
+[gd_scene load_steps=28 format=3 uid="uid://bmbtvyvub2wgf"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_gaju6"]
 [ext_resource type="AudioStream" uid="uid://bk8d46amr61ms" path="res://assets/sound/MeowSphereMainMenu.mp3" id="2_mohlv"]

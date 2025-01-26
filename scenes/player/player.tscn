@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://crugmwwi44o31"]
+[gd_scene load_steps=24 format=3 uid="uid://crugmwwi44o31"]
 
 [ext_resource type="Script" path="res://scenes/player/player_control.gd" id="1_u4fh8"]
 [ext_resource type="Texture2D" uid="uid://c74r74wpje265" path="res://assets/sprites/gatto/gatto1.png" id="2_aud22"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bevq3sdcxicyh" path="res://assets/sprites/Bollicineanimation/Bollicine0004.png" id="8_wa7su"]
 [ext_resource type="Texture2D" uid="uid://c1or1kis7pk1" path="res://assets/sprites/Bollicineanimation/Bollicine0006.png" id="9_2imtg"]
 [ext_resource type="Texture2D" uid="uid://bihconlj3yg58" path="res://assets/sprites/bolla/bolla5.png" id="9_csv0p"]
-[ext_resource type="PackedScene" uid="uid://bndljt0168bwo" path="res://scenes/objects/arrow.tscn" id="9_rgg8j"]
 [ext_resource type="Texture2D" uid="uid://csfhcyxlpstum" path="res://assets/sprites/Bollicineanimation/Bollicine0007.png" id="10_2yk8q"]
 [ext_resource type="Texture2D" uid="uid://cbbtwerv2njw4" path="res://assets/sprites/bolla/bolla_animata1.png" id="10_6ispa"]
 [ext_resource type="Texture2D" uid="uid://betabp1yuiy8u" path="res://assets/sprites/bolla/bolla_animata2.png" id="11_8oysm"]
@@ -135,8 +134,6 @@ frame_progress = 0.762564
 [node name="SparaBolle" parent="Cat" instance=ExtResource("8_ni778")]
 position = Vector2(17.745, 20.7)
 scale = Vector2(0.7, 0.7)
-
-[node name="Arrow" parent="Cat" instance=ExtResource("9_rgg8j")]
 
 [node name="Swimming" type="AnimatedSprite2D" parent="."]
 visible = false

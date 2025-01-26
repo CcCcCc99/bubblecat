@@ -1,4 +1,5 @@
 extends Node
+class_name GameManager
 
 @export var player_scene: PackedScene
 @export var skill_point_scene: PackedScene
@@ -23,8 +24,8 @@ var skills_instances = []
 @onready var minimap = $HUD/Minimappa
 @onready var skills: Node2D = $Skills
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+
+func _ready():
 	player = player_scene.instantiate()
 	player.ready.connect(func (): minimap.set_player(player))
 	add_child(player)
@@ -49,16 +50,22 @@ func spawn_random_in_radius(scene: PackedScene, center: Vector2, radius: float) 
 	return object
 
 func _on_spawn_point_cooldown_timeout() -> void:
-	if points_instances.size() < max_points_in_map:
-		var rand_range = randi() % max_spawn_distance + min_spawn_distance
-		var point = spawn_random_in_radius(skill_point_scene, player.position, rand_range)
-		map.add_child(point)
-		points_instances.append(point)
+	for i in range(3):
+		if points_instances.size() < max_points_in_map:
+			var rand_range = randi() % max_spawn_distance + min_spawn_distance
+			var point = spawn_random_in_radius(skill_point_scene, player.position, rand_range)
+			map.add_child(point)
+			points_instances.append(point)
 		
 func _on_spawn_skill_cooldown_timeout() -> void:
 	if PointsManager.armor_enabled and skills_instances.size() < max_skills_in_map:
 		var rand_range = randi() % max_spawn_distance + min_spawn_distance
-		var skill = spawn_random_in_radius(skill_point_scene, player.position, rand_range)
+		var skill = spawn_random_in_radius(skill_scene1, player.position, rand_range)
+		map.add_child(skill)
+		skills_instances.append(skill)
+	if PointsManager.gun_level > 0 and skills_instances.size() < max_skills_in_map:
+		var rand_range = randi() % max_spawn_distance + min_spawn_distance
+		var skill = spawn_random_in_radius(skill_scene2, player.position, rand_range)
 		map.add_child(skill)
 		skills_instances.append(skill)
 

@@ -18,3 +18,4 @@ func enable(t):
 func disable():
 	target = null
 	hide()
+	call_deferred("queue_free")

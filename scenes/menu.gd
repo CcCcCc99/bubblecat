@@ -1,6 +1,6 @@
 extends Control
 
-const TESTSCENE: PackedScene = preload("res://testscene.tscn")
+const TESTSCENE: PackedScene = preload("res://c_anvas.tscn")
 
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 

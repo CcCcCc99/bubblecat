@@ -2,6 +2,7 @@ extends Area2D
 class_name StartLine
 
 @export var malus: int = 5
+@export var arrow_scene: PackedScene
 
 var finish: FinishArea
 var arrow: Arrow
@@ -15,7 +16,8 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		var p = body as Player
-		arrow = p.get_node("Cat").get_node("Arrow")
+		arrow = arrow_scene.instantiate()
+		p.get_node("Cat").add_child(arrow)
 		arrow.enable(finish)
 		finish.enable()
 		finish.arrived.connect(_stop_timer)
@@ -43,4 +45,4 @@ func enable() -> void:
 
 func disable() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
-	hide()
+	call_deferred("queue_free")
