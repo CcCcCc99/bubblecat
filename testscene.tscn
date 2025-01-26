@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d341rd2nhfiku"]
+[gd_scene load_steps=12 format=3 uid="uid://d341rd2nhfiku"]
 
 [ext_resource type="PackedScene" uid="uid://crugmwwi44o31" path="res://scenes/player/player.tscn" id="1_6r8lm"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_ckjmq"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c43gjk7v4qevv" path="res://scenes/hud.tscn" id="7_2xgdx"]
 [ext_resource type="PackedScene" uid="uid://by4sltlkgk4i2" path="res://scenes/skills/armatura.tscn" id="7_078fk"]
 [ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
-[ext_resource type="PackedScene" uid="uid://ccc43hi0w325i" path="res://scenes/obstacle/pesce/fish.tscn" id="9_xamc0"]
 [ext_resource type="PackedScene" uid="uid://dqh4n7bvvjup0" path="res://scenes/objects/start_line.tscn" id="8_j8xm8"]
 [ext_resource type="PackedScene" uid="uid://d31jyuv5g3pg6" path="res://scenes/objects/finish_area.tscn" id="9_3ioum"]
 
@@ -19,19 +18,11 @@ player_scene = ExtResource("1_6r8lm")
 skill_point_scene = ExtResource("3_tu30h")
 skill_scene = ExtResource("7_078fk")
 obstacle_scene = ExtResource("6_o8o8p")
+rect_limit_spawn = Rect2(-3401, -1834, 6809, 3679)
 
 [node name="Environment" parent="." instance=ExtResource("4_uin0a")]
 
 [node name="OxygenSources" type="Node2D" parent="."]
-[node name="TargetSpace" type="Node2D" parent="."]
-
-[node name="StartLine" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
-position = Vector2(-242, 179)
-
-[node name="FinishArea" parent="TargetSpace/StartLine" instance=ExtResource("9_3ioum")]
-position = Vector2(544, -262)
-
-[node name="Node2D" type="Node2D" parent="."]
 
 [node name="RegenBubble" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(1031, -214)
@@ -78,6 +69,16 @@ position = Vector2(2601, 116)
 [node name="RegenBubble16" parent="OxygenSources" instance=ExtResource("2_ied3k")]
 position = Vector2(-1162, -1375)
 
+[node name="TargetSpace" type="Node2D" parent="."]
+
+[node name="StartLine" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
+position = Vector2(-242, 179)
+
+[node name="FinishArea" parent="TargetSpace/StartLine" instance=ExtResource("9_3ioum")]
+position = Vector2(544, -262)
+
+[node name="Node2D" type="Node2D" parent="."]
+
 [node name="Skills" type="Node2D" parent="."]
 
 [node name="SpawnPointCooldown" type="Timer" parent="."]
@@ -99,11 +100,6 @@ stream = ExtResource("8_5ui3x")
 autoplay = true
 bus = &"Sound"
 parameters/looping = true
-
-[node name="fish" parent="." instance=ExtResource("9_xamc0")]
-position = Vector2(823, 429)
-newspeed = 200.0
-damage = 5
 
 [node name="Armatura" parent="." instance=ExtResource("7_078fk")]
 position = Vector2(404, 254)

@@ -12,6 +12,8 @@ var player: Player
 @export var max_points_in_map: int = 50
 @export var max_skills_in_map: int = 50
 
+@export var rect_limit_spawn: Rect2 
+
 var points_instances = []
 var obstacles_instances = []
 var skills_instances = []
@@ -34,7 +36,15 @@ func spawn_random_in_radius(scene: PackedScene, center: Vector2, radius: float) 
 	var x = cos(angle) * radius
 	var y = sin(angle) * radius
 	
-	object.position = center + Vector2(x, y)
+	var generated_position = center + Vector2(x, y)
+	while not rect_limit_spawn.has_point(generated_position):
+		angle = randf() * TAU
+	
+		x = cos(angle) * radius
+		y = sin(angle) * radius
+	
+		generated_position = center + Vector2(x, y)
+	object.position = generated_position
 	return object
 
 func _on_spawn_point_cooldown_timeout() -> void:

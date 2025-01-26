@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxi6vvu260ajj"]
+[gd_scene load_steps=9 format=3 uid="uid://bxi6vvu260ajj"]
 
 [ext_resource type="Material" uid="uid://cwm020e35njal" path="res://shaders/water_material.tres" id="1_hvf1e"]
 [ext_resource type="Texture2D" uid="uid://dbqcg7hif7p3v" path="res://assets/vasca.png" id="2_or50t"]
 [ext_resource type="Texture2D" uid="uid://qqu6n0vomx5p" path="res://assets/sfondo_vasca.png" id="2_trhyl"]
+[ext_resource type="Texture2D" uid="uid://b33o38je1gsbr" path="res://assets/vasca_completa.png" id="3_khyeg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s02bi"]
 normal = Vector2(1, 0)
@@ -17,12 +18,22 @@ normal = Vector2(0, 1)
 
 [node name="Environment" type="Node2D"]
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 material = ExtResource("1_hvf1e")
 scale = Vector2(1.885, 2.18)
 texture = ExtResource("2_trhyl")
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+material = ExtResource("1_hvf1e")
+texture = ExtResource("3_khyeg")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 material = ExtResource("1_hvf1e")
 texture = ExtResource("2_or50t")
 
