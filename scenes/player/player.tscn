@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://crugmwwi44o31"]
+[gd_scene load_steps=23 format=3 uid="uid://crugmwwi44o31"]
 
 [ext_resource type="Script" path="res://scenes/player/player_control.gd" id="1_u4fh8"]
 [ext_resource type="Texture2D" uid="uid://c74r74wpje265" path="res://assets/sprites/gatto/gatto1.png" id="2_aud22"]
@@ -8,7 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://c1apm1lr35uti" path="res://assets/sprites/gatto/gatto4.png" id="5_sjhy8"]
 [ext_resource type="Texture2D" uid="uid://b6unkcr1dehew" path="res://assets/sprites/gatto/gatto5.png" id="6_gle5u"]
 [ext_resource type="Texture2D" uid="uid://cf5skocaecgh4" path="res://assets/sprites/gatto/gatto6.png" id="7_drpbh"]
+[ext_resource type="Texture2D" uid="uid://bevq3sdcxicyh" path="res://assets/sprites/Bollicineanimation/Bollicine0004.png" id="8_wa7su"]
+[ext_resource type="Texture2D" uid="uid://c1or1kis7pk1" path="res://assets/sprites/Bollicineanimation/Bollicine0006.png" id="9_2imtg"]
 [ext_resource type="Texture2D" uid="uid://bihconlj3yg58" path="res://assets/sprites/bolla/bolla5.png" id="9_csv0p"]
+[ext_resource type="Texture2D" uid="uid://csfhcyxlpstum" path="res://assets/sprites/Bollicineanimation/Bollicine0007.png" id="10_2yk8q"]
+[ext_resource type="Texture2D" uid="uid://cbbtwerv2njw4" path="res://assets/sprites/bolla/bolla_animata1.png" id="10_6ispa"]
+[ext_resource type="Texture2D" uid="uid://betabp1yuiy8u" path="res://assets/sprites/bolla/bolla_animata2.png" id="11_8oysm"]
+[ext_resource type="Texture2D" uid="uid://di2yvectqvus6" path="res://assets/sprites/Bollicineanimation/Bollicine0008.png" id="11_ok8wd"]
+[ext_resource type="Texture2D" uid="uid://c1bkouo6c8tu1" path="res://assets/sprites/bolla/bolla_animata3.png" id="12_myn00"]
+[ext_resource type="Texture2D" uid="uid://clekah5n4bihk" path="res://assets/sprites/Bollasirompe128/Bollasirompe1280012.png" id="17_fni85"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_utmqn"]
 animations = [{
@@ -44,9 +52,66 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ed8v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_wa7su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2imtg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2yk8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ok8wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2yk8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2imtg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2jxj"]
 radius = 15.245
 height = 62.7562
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ail5i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_csv0p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_csv0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6ispa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8oysm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_myn00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fni85")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_stfp8"]
 radius = 59.0
@@ -65,7 +130,16 @@ animation = &"walk"
 autoplay = "idle"
 frame_progress = 0.762564
 
+[node name="Swimming" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 21)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_8ed8v")
+autoplay = "default"
+frame_progress = 0.364766
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(4.935, 12.355)
 rotation = 3.72453
 shape = SubResource("CapsuleShape2D_u2jxj")
@@ -79,14 +153,15 @@ script = ExtResource("2_igfwd")
 initial_o2 = 10
 min_scale = 0.65
 
-[node name="Sprite2D" type="Sprite2D" parent="Bubble"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Bubble"]
 modulate = Color(1, 1, 1, 0.407843)
 position = Vector2(0, 5.52)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("9_csv0p")
+sprite_frames = SubResource("SpriteFrames_ail5i")
+animation = &"pop"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble"]
-visible = false
 shape = SubResource("CircleShape2D_stfp8")
 
 [node name="OxigenConsumption" type="Timer" parent="Bubble"]
@@ -95,5 +170,8 @@ autostart = true
 [node name="Invulnerability" type="Timer" parent="Bubble"]
 wait_time = 1.5
 
+[connection signal="death" from="Bubble" to="." method="_on_bubble_death"]
+[connection signal="death" from="Bubble" to="Bubble" method="_on_death"]
+[connection signal="animation_finished" from="Bubble/Sprite2D" to="Bubble" method="_on_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Bubble/OxigenConsumption" to="Bubble" method="_on_oxigen_consumption_timeout"]
 [connection signal="timeout" from="Bubble/Invulnerability" to="Bubble" method="end_invulnerability"]

@@ -10,7 +10,7 @@ class_name Fish
 # 2) Aumenta la velocita'
 # Nota bene: sta dando problemi. Dovrebbe avere lo stesso comportamento della barca per ora, ma non sta funzionando.
 func get_direction() -> Vector2:
-	return (target.global_position - global_position).normalized()
+	return Vector2.ZERO# (target.global_position - global_position).normalized()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -5,13 +5,19 @@ class_name FinishArea
 
 signal arrived
 
+func _ready() -> void:
+	disable()
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		PointsManager.score += points
 		emit_signal("arrived")
+		disable()
 
 func enable():
-	print("abilitato")
+	$CollisionShape2D.set_deferred("disabled", false)
+	show()
 
 func disable():
-	print("disabilitato")
+	$CollisionShape2D.set_deferred("disabled", true)
+	hide()

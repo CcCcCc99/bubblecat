@@ -1,7 +1,9 @@
 extends Area2D
 class_name MainBubble
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite2D
+
+signal death
 
 var invulnerable: bool = false
 @export var max_o2: int = 50
@@ -10,6 +12,8 @@ var o2: int:
 	set(value):
 		o2 = clamp(value, 0, max_o2)
 		self.scale = _calculate_scale()
+		if o2 <= 0:
+			emit_signal("death")
 
 @export var consumption_rate: int = 1
 
@@ -49,3 +53,11 @@ func end_invulnerability():
 func get_radius() -> float:
 	var circle: CircleShape2D = $CollisionShape2D.shape
 	return circle.radius * scale.x
+
+func _on_death() -> void:
+	sprite.play("pop")
+
+#terribile fix dell'una e mezza di notte perche non so come mai l'animazione non smette di loopare
+func _on_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "pop":
+		queue_free()

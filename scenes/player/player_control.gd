@@ -9,21 +9,20 @@ class_name Player
 @export var friction_coef: float = 3
 @export var max_speed: float = 300
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var is_alive: bool = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var direction: Vector2
-	direction.x =  Input.get_axis("move_left","move_right")
-	direction.y = Input.get_axis("move_up", "move_down")
-	direction = direction.normalized()
-	var friction =  -velocity.normalized() * friction_coef * velocity.length()/max_speed
-	velocity += (acceleration * direction + friction) * delta
-	velocity = velocity.normalized() * min(velocity.length(), max_speed)
-	move_and_slide()
-	_animate(direction)
+	if is_alive:
+		var direction: Vector2
+		direction.x =  Input.get_axis("move_left","move_right")
+		direction.y = Input.get_axis("move_up", "move_down")
+		direction = direction.normalized()
+		var friction =  -velocity.normalized() * friction_coef * velocity.length()/max_speed
+		velocity += (acceleration * direction + friction) * delta
+		velocity = velocity.normalized() * min(velocity.length(), max_speed)
+		move_and_slide()
+		_animate(direction)
 
 func _animate(direction: Vector2) -> void:
 	var radius = bubble.get_radius()
@@ -42,4 +41,7 @@ func _animate(direction: Vector2) -> void:
 		sprite.flip_h = false
 	elif direction.x < 0:
 		sprite.flip_h = true
-	
+
+func _on_bubble_death() -> void:
+	is_alive = false
+	$Swimming.show()
