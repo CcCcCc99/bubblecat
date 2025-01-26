@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd7rd2a0m1k6w"]
+[gd_scene load_steps=7 format=3 uid="uid://cpt2uyj8dopny"]
 
-[ext_resource type="Material" uid="uid://brrav7d7o4b0m" path="res://shaders/vignette_material.tres" id="1_w4lrl"]
+[ext_resource type="Material" path="res://shaders/vignette_material.tres" id="1_w4lrl"]
 [ext_resource type="Texture2D" uid="uid://ha7awidw16yq" path="res://assets/gameover/game_over_vignette.png" id="2_oqd07"]
 [ext_resource type="FontFile" uid="uid://cch1mojodba4m" path="res://assets/Baby Gemoy.ttf" id="3_3nwch"]
 [ext_resource type="Script" path="res://scrips/retry_button.gd" id="4_cc12b"]
