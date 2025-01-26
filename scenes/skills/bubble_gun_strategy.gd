@@ -1,17 +1,11 @@
 extends Node
 
-@export var gun_scene: PackedScene
-var instance: Node2D
-var map: Node2D
-var sprite: AnimatedSprite2D
+var gun: SparaBolle
 
 func _ready() -> void:
-	map = get_parent()
-	sprite = get_parent().get_node("Cat")
-	instance = gun_scene.instantiate()
-	instance.map = map
-	sprite.add_child(instance)
+	gun = get_parent().get_node("Cat").get_node("SparaBolle")
+	gun.is_enabled = true
 
 func _on_timer_timeout() -> void:
-	instance.queue_free()
+	gun.is_enabled = false
 	queue_free()

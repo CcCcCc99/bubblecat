@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://crugmwwi44o31"]
+[gd_scene load_steps=24 format=3 uid="uid://crugmwwi44o31"]
 
 [ext_resource type="Script" path="res://scenes/player/player_control.gd" id="1_u4fh8"]
 [ext_resource type="Texture2D" uid="uid://c74r74wpje265" path="res://assets/sprites/gatto/gatto1.png" id="2_aud22"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1apm1lr35uti" path="res://assets/sprites/gatto/gatto4.png" id="5_sjhy8"]
 [ext_resource type="Texture2D" uid="uid://b6unkcr1dehew" path="res://assets/sprites/gatto/gatto5.png" id="6_gle5u"]
 [ext_resource type="Texture2D" uid="uid://cf5skocaecgh4" path="res://assets/sprites/gatto/gatto6.png" id="7_drpbh"]
+[ext_resource type="PackedScene" uid="uid://bb8ncp3l5k11r" path="res://scenes/skills/spara_bolle.tscn" id="8_ni778"]
 [ext_resource type="Texture2D" uid="uid://bevq3sdcxicyh" path="res://assets/sprites/Bollicineanimation/Bollicine0004.png" id="8_wa7su"]
 [ext_resource type="Texture2D" uid="uid://c1or1kis7pk1" path="res://assets/sprites/Bollicineanimation/Bollicine0006.png" id="9_2imtg"]
 [ext_resource type="Texture2D" uid="uid://bihconlj3yg58" path="res://assets/sprites/bolla/bolla5.png" id="9_csv0p"]
@@ -124,11 +125,14 @@ friction_coef = 200.0
 max_speed = 400.0
 
 [node name="Cat" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_utmqn")
 animation = &"walk"
 autoplay = "idle"
 frame_progress = 0.762564
+
+[node name="SparaBolle" parent="Cat" instance=ExtResource("8_ni778")]
+position = Vector2(17.745, 20.7)
+scale = Vector2(0.7, 0.7)
 
 [node name="Swimming" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -11,8 +11,8 @@ var power_ups = [
 	Callable(self, "enable_minimap"),
 	Callable(self, "enable_armor"),
 	Callable(self, "enable_gun"),
-	Callable(self, "power_up_gun"),
-	Callable(self, "power_up_gun"),
+	#Callable(self, "power_up_gun"),
+	#Callable(self, "power_up_gun"),
 	Callable(self, "gain_score")
 ]
 var power_up_index: int = 0:
@@ -27,18 +27,18 @@ var skill_points: int = 0:
 			skill_points -= target_for_level
 			power_ups[power_up_index].call()
 			power_up_index += 1
-		emit_signal("skill_points_updated")
+		skill_points_updated.emit()
 
-var target_for_level: int = 1
+var target_for_level: int = 4
 
 var score: int = 0:
 	set(value):
 		score = value
 		print("Punteggio: ",score)
-		emit_signal("score_updated")
+		score_updated.emit()
 
 func enable_minimap():
-	emit_signal("map_enabled")
+	map_enabled.emit()
 	print("abilitata mappa")
 
 func enable_armor():

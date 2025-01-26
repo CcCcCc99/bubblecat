@@ -9,9 +9,8 @@ script = ExtResource("1_hyw3t")
 projectile_scene = ExtResource("2_iupld")
 
 [node name="ProjectilePoint" type="Marker2D" parent="."]
-position = Vector2(20, -12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(-1, 1)
 texture = ExtResource("1_vyryi")
+flip_h = true

@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 		move_and_slide()
 		_animate(direction)
 
+var prev_dir: Vector2 = Vector2.ZERO
+
 func _animate(direction: Vector2) -> void:
 	var radius = bubble.get_radius()
 	var displacement = direction * (radius - 38)
@@ -36,11 +38,10 @@ func _animate(direction: Vector2) -> void:
 	else:
 		sprite.animation = "idle"
 	
-	#flippa in base alla direzione
 	if direction.x > 0:
-		sprite.flip_h = false
+		sprite.scale.x = 1
 	elif direction.x < 0:
-		sprite.flip_h = true
+		sprite.scale.x = -1
 
 func _on_bubble_death() -> void:
 	is_alive = false
