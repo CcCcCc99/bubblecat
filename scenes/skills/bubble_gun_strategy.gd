@@ -1,5 +1,7 @@
 extends Node
 
+const PISTOLA_PATH = "res://assets/sprites/pistola.png"
+
 var gun: SparaBolle
 
 func _ready() -> void:

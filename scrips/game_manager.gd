@@ -26,7 +26,7 @@ var skills_instances = []
 func _ready() -> void:
 	player = player_scene.instantiate()
 	player.ready.connect(func (): minimap.set_player(player))
-	map.add_child(player)
+	add_child(player)
 
 func spawn_random_in_radius(scene: PackedScene, center: Vector2, radius: float) -> Node2D:
 	var object: Node2D = scene.instantiate()

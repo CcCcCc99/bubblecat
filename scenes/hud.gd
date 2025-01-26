@@ -6,11 +6,11 @@ func _ready() -> void:
 	PointsManager.score_updated.connect(_update_score)
 	_update_progrssbar()
 	PointsManager.skill_points_updated.connect(_update_progrssbar)
-	$Minimappa.hide()
+	#$Minimappa.hide()
 	PointsManager.map_enabled.connect($Minimappa.show)
 
 func _update_score() -> void:
-	$Score.text = str(PointsManager.score)
+	$TextureRect/Score.text = str(PointsManager.score)
 
 func _update_progrssbar() -> void:
 	$ProgressBar.value = PointsManager.skill_points

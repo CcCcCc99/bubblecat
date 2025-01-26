@@ -77,8 +77,6 @@ position = Vector2(-242, 179)
 [node name="FinishArea" parent="TargetSpace/StartLine" instance=ExtResource("9_3ioum")]
 position = Vector2(544, -262)
 
-[node name="Node2D" type="Node2D" parent="."]
-
 [node name="Skills" type="Node2D" parent="."]
 
 [node name="SpawnPointCooldown" type="Timer" parent="."]
@@ -100,9 +98,6 @@ stream = ExtResource("8_5ui3x")
 autoplay = true
 bus = &"Sound"
 parameters/looping = true
-
-[node name="Armatura" parent="." instance=ExtResource("7_078fk")]
-position = Vector2(404, 254)
 
 [connection signal="timeout" from="SpawnPointCooldown" to="." method="_on_spawn_point_cooldown_timeout"]
 [connection signal="timeout" from="SpawnobstacleCooldown" to="." method="_on_spawn_obstacle_cooldown_timeout"]

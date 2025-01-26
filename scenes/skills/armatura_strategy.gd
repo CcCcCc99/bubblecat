@@ -1,6 +1,7 @@
 extends Node
 
 const ARMOR_SPRITE = preload("res://scenes/skills/armor_sprite.tscn")
+const ARMATURA_PATH = "res://assets/skills/armatura.png"
 
 var player: Player
 var armor_sprite_node: Sprite2D
@@ -10,6 +11,7 @@ func _ready() -> void:
 	player.bubble.invulnerable = true
 	armor_sprite_node = ARMOR_SPRITE.instantiate()
 	player.bubble.add_child(armor_sprite_node)
+
 
 func _on_timer_timeout() -> void:
 	# se muori con l'invulnerabilità a dosso è un problema
