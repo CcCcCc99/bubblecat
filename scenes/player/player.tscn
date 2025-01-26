@@ -160,8 +160,11 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ail5i")
 animation = &"pop"
 autoplay = "default"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble"]
+visible = false
 shape = SubResource("CircleShape2D_stfp8")
 
 [node name="OxigenConsumption" type="Timer" parent="Bubble"]

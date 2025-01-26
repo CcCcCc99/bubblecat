@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://lplicy6g1bkm"]
+
+[ext_resource type="Script" path="res://scenes/skills/projectile.gd" id="1_wtsq0"]
+[ext_resource type="Texture2D" uid="uid://dupfepwh2eaut" path="res://assets/sprites/Bolla proiettile/Proiettile0013.png" id="2_ka1vr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rg1qa"]
+radius = 16.0
+height = 32.0
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 16
+collision_mask = 31
+script = ExtResource("1_wtsq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-11.965, -7.33)
+rotation = -1.5708
+texture = ExtResource("2_ka1vr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rg1qa")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d341rd2nhfiku"]
+[gd_scene load_steps=13 format=3 uid="uid://d341rd2nhfiku"]
 
 [ext_resource type="PackedScene" uid="uid://crugmwwi44o31" path="res://scenes/player/player.tscn" id="1_6r8lm"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_ckjmq"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
 [ext_resource type="PackedScene" uid="uid://dqh4n7bvvjup0" path="res://scenes/objects/start_line.tscn" id="8_j8xm8"]
 [ext_resource type="PackedScene" uid="uid://d31jyuv5g3pg6" path="res://scenes/objects/finish_area.tscn" id="9_3ioum"]
+[ext_resource type="PackedScene" uid="uid://cl068uxeh383h" path="res://scenes/skills/bubble_gun.tscn" id="12_ustka"]
 
 [node name="testscene" type="Node"]
 script = ExtResource("1_ckjmq")
@@ -90,7 +91,7 @@ wait_time = 6.0
 autostart = true
 
 [node name="SpawnSkillsCooldown" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 15.0
 autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("7_2xgdx")]
@@ -100,6 +101,9 @@ stream = ExtResource("8_5ui3x")
 autoplay = true
 bus = &"Sound"
 parameters/looping = true
+
+[node name="BubbleGun" parent="." instance=ExtResource("12_ustka")]
+position = Vector2(173, 163)
 
 [connection signal="timeout" from="SpawnPointCooldown" to="." method="_on_spawn_point_cooldown_timeout"]
 [connection signal="timeout" from="SpawnobstacleCooldown" to="." method="_on_spawn_obstacle_cooldown_timeout"]

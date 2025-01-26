@@ -57,7 +57,7 @@ func get_radius() -> float:
 func _on_death() -> void:
 	sprite.play("pop")
 
-#terribile fix dell'una e mezza di notte perche non so come mai l'animazione non smette di loopare
+
 func _on_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "pop":
-		queue_free()
+		hide()

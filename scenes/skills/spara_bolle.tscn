@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb8ncp3l5k11r"]
+
+[ext_resource type="Script" path="res://scenes/skills/spara_bolle.gd" id="1_hyw3t"]
+[ext_resource type="Texture2D" uid="uid://3yhstp1iqknu" path="res://assets/sprites/pistola.png" id="1_vyryi"]
+[ext_resource type="PackedScene" uid="uid://lplicy6g1bkm" path="res://scenes/skills/projectile.tscn" id="2_iupld"]
+
+[node name="SparaBolle" type="Node2D"]
+script = ExtResource("1_hyw3t")
+projectile_scene = ExtResource("2_iupld")
+
+[node name="ProjectilePoint" type="Marker2D" parent="."]
+position = Vector2(20, -12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(-1, 1)
+texture = ExtResource("1_vyryi")
