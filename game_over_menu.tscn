@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd7rd2a0m1k6w"]
+[gd_scene load_steps=7 format=3 uid="uid://dd7rd2a0m1k6w"]
 
-[ext_resource type="Texture2D" uid="uid://ha7awidw16yq" path="res://assets/gameover/game_over_vignette.png" id="1_6aso1"]
-[ext_resource type="Material" uid="uid://brrav7d7o4b0m" path="res://shaders/vignette_material.tres" id="1_wfswp"]
-[ext_resource type="FontFile" uid="uid://cch1mojodba4m" path="res://assets/Baby Gemoy.ttf" id="2_txaj0"]
-[ext_resource type="Script" path="res://scrips/exit_button.gd" id="3_0ixji"]
+[ext_resource type="Material" uid="uid://brrav7d7o4b0m" path="res://shaders/vignette_material.tres" id="1_w4lrl"]
+[ext_resource type="Texture2D" uid="uid://ha7awidw16yq" path="res://assets/gameover/game_over_vignette.png" id="2_oqd07"]
+[ext_resource type="FontFile" uid="uid://cch1mojodba4m" path="res://assets/Baby Gemoy.ttf" id="3_3nwch"]
+[ext_resource type="Script" path="res://scrips/retry_button.gd" id="4_cc12b"]
+[ext_resource type="Script" path="res://scrips/exit_button.gd" id="5_rd4ay"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t44l7"]
 bg_color = Color(1, 1, 1, 0.337255)
@@ -26,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = ExtResource("1_wfswp")
+material = ExtResource("1_w4lrl")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6aso1")
+texture = ExtResource("2_oqd07")
 
 [node name="GameOver" type="Label" parent="."]
 layout_mode = 1
@@ -61,7 +62,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("2_txaj0")
+theme_override_fonts/font = ExtResource("3_3nwch")
 theme_override_font_sizes/font_size = 128
 text = "GAME OVER"
 
@@ -95,6 +96,7 @@ alignment = 1
 [node name="RetryButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+script = ExtResource("4_cc12b")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/RetryButton"]
 layout_mode = 1
@@ -110,7 +112,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_txaj0")
+theme_override_fonts/font = ExtResource("3_3nwch")
 theme_override_font_sizes/font_size = 48
 text = "RETRY"
 horizontal_alignment = 1
@@ -119,7 +121,7 @@ vertical_alignment = 1
 [node name="ExitButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-script = ExtResource("3_0ixji")
+script = ExtResource("5_rd4ay")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ExitButton"]
 layout_mode = 1
@@ -135,10 +137,11 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_txaj0")
+theme_override_fonts/font = ExtResource("3_3nwch")
 theme_override_font_sizes/font_size = 48
 text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/RetryButton" to="PanelContainer/MarginContainer/VBoxContainer/RetryButton" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ExitButton" to="PanelContainer/MarginContainer/VBoxContainer/ExitButton" method="_on_pressed"]

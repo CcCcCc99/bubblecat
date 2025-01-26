@@ -31,7 +31,7 @@ Player="Tutto ciò che ha a che fare con il player"
 MainBubble="La bolla che circonda il giocatore"
 Obstacle="Tutti gli ostacoli"
 RegenBubble="Le bolle di ossigeno che si rigenerano"
-SkillContainer=""
+gameovermenu=""
 
 [input]
 

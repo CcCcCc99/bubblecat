@@ -6,14 +6,16 @@ class_name MainBubble
 signal death
 
 var invulnerable: bool = false
+var is_dead = false
 @export var max_o2: int = 50
 @export var initial_o2: int = 20
 var o2: int:
 	set(value):
 		o2 = clamp(value, 0, max_o2)
 		self.scale = _calculate_scale()
-		if o2 <= 0:
+		if not is_dead and o2 <= 0:
 			emit_signal("death")
+			is_dead=true
 
 @export var consumption_rate: int = 1
 
@@ -57,7 +59,11 @@ func get_radius() -> float:
 func _on_death() -> void:
 	sprite.play("pop")
 
-
 func _on_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "pop":
 		hide()
+		await get_tree().create_timer(3).timeout
+		get_tree().get_nodes_in_group("gameovermenu")[0].show()
+		for audio in get_tree().get_nodes_in_group("audio"):
+			if (not audio.playing) and audio.name == "AudioGameOver":
+				audio.play()

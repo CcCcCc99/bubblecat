@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d341rd2nhfiku"]
+[gd_scene load_steps=15 format=3 uid="uid://d341rd2nhfiku"]
 
 [ext_resource type="PackedScene" uid="uid://crugmwwi44o31" path="res://scenes/player/player.tscn" id="1_6r8lm"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_ckjmq"]
@@ -11,7 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
 [ext_resource type="PackedScene" uid="uid://dqh4n7bvvjup0" path="res://scenes/objects/start_line.tscn" id="8_j8xm8"]
 [ext_resource type="PackedScene" uid="uid://d31jyuv5g3pg6" path="res://scenes/objects/finish_area.tscn" id="9_3ioum"]
-[ext_resource type="PackedScene" uid="uid://cl068uxeh383h" path="res://scenes/skills/bubble_gun.tscn" id="12_ustka"]
+[ext_resource type="AudioStream" uid="uid://l07t5rgiqr74" path="res://assets/sound/MeowSphereGameOver.mp3" id="11_cg32i"]
+[ext_resource type="PackedScene" uid="uid://dd7rd2a0m1k6w" path="res://game_over_menu.tscn" id="12_e6hg8"]
+[ext_resource type="AudioStream" uid="uid://bjcv0mn263hji" path="res://assets/sound/MeowSphereDying.mp3" id="12_vqrob"]
 
 [node name="testscene" type="Node"]
 script = ExtResource("1_ckjmq")
@@ -97,11 +99,29 @@ autostart = true
 
 [node name="HUD" parent="." instance=ExtResource("7_2xgdx")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioGameOver" type="AudioStreamPlayer" parent="." groups=["audio"]]
+stream = ExtResource("11_cg32i")
+bus = &"Sound"
+parameters/looping = true
+
+[node name="AudioDying" type="AudioStreamPlayer" parent="." groups=["audio"]]
+stream = ExtResource("12_vqrob")
+bus = &"Sound"
+parameters/looping = false
+
+[node name="AudioTheme" type="AudioStreamPlayer" parent="." groups=["audio"]]
 stream = ExtResource("8_5ui3x")
 autoplay = true
 bus = &"Sound"
 parameters/looping = true
+
+[node name="Armatura" parent="." instance=ExtResource("7_078fk")]
+position = Vector2(404, 254)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverMenu" parent="CanvasLayer" groups=["gameovermenu"] instance=ExtResource("12_e6hg8")]
+visible = false
 
 [connection signal="timeout" from="SpawnPointCooldown" to="." method="_on_spawn_point_cooldown_timeout"]
 [connection signal="timeout" from="SpawnobstacleCooldown" to="." method="_on_spawn_obstacle_cooldown_timeout"]

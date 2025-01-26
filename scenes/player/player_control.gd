@@ -56,5 +56,11 @@ func _animate(direction: Vector2) -> void:
 		sprite.scale.x = -1
 
 func _on_bubble_death() -> void:
+	if is_alive:
+		$Swimming.show()
+		for audio in get_tree().get_nodes_in_group("audio"):
+			if audio.name == "AudioDying":
+				audio.play()
+			if audio.playing and audio.name == "AudioTheme":
+				audio.stop()
 	is_alive = false
-	$Swimming.show()
