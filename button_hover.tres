@@ -1,0 +1,23 @@
+[gd_resource type="AnimatedTexture" load_steps=7 format=3 uid="uid://l6b8l708mxai"]
+
+[ext_resource type="Texture2D" uid="uid://cd4aohprksrae" path="res://assets/menu/button/button_hover_0.png" id="1_kedhn"]
+[ext_resource type="Texture2D" uid="uid://cmm8oqr1vxgy7" path="res://assets/menu/button/button_hover_1.png" id="2_enley"]
+[ext_resource type="Texture2D" uid="uid://c8u36yvtruyay" path="res://assets/menu/button/button_hover_2.png" id="3_5qy1q"]
+[ext_resource type="Texture2D" uid="uid://3y6gytk7ejw4" path="res://assets/menu/button/button_hover_3.png" id="4_ygaxx"]
+[ext_resource type="Texture2D" uid="uid://cbq2j8i7ktxeh" path="res://assets/menu/button/button_hover_4.png" id="5_pt8kh"]
+[ext_resource type="Texture2D" uid="uid://deq7h5owxaw1" path="res://assets/menu/button/button_hover_5.png" id="6_y5lgm"]
+
+[resource]
+frames = 6
+frame_0/texture = ExtResource("1_kedhn")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_enley")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("3_5qy1q")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("4_ygaxx")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("5_pt8kh")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("6_y5lgm")
+frame_5/duration = 0.1

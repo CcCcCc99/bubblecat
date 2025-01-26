@@ -14,6 +14,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	# se muori con l'invulnerabilità a dosso è un problema
 	# da sistemare
+	player.bubble.death
 	player.bubble.invulnerable = false
 	armor_sprite_node.queue_free()
 	queue_free()
