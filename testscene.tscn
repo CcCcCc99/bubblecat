@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d341rd2nhfiku"]
+[gd_scene load_steps=13 format=3 uid="uid://d341rd2nhfiku"]
 
 [ext_resource type="PackedScene" uid="uid://crugmwwi44o31" path="res://scenes/player/player.tscn" id="1_6r8lm"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_ckjmq"]
@@ -11,12 +11,14 @@
 [ext_resource type="AudioStream" uid="uid://binh4j5ohyn5x" path="res://assets/sound/BubbleCatTheme.mp3" id="8_5ui3x"]
 [ext_resource type="PackedScene" uid="uid://dqh4n7bvvjup0" path="res://scenes/objects/start_line.tscn" id="8_j8xm8"]
 [ext_resource type="PackedScene" uid="uid://d31jyuv5g3pg6" path="res://scenes/objects/finish_area.tscn" id="9_3ioum"]
+[ext_resource type="PackedScene" uid="uid://cl068uxeh383h" path="res://scenes/skills/bubble_gun.tscn" id="12_ustka"]
 
 [node name="testscene" type="Node"]
 script = ExtResource("1_ckjmq")
 player_scene = ExtResource("1_6r8lm")
 skill_point_scene = ExtResource("3_tu30h")
-skill_scene = ExtResource("7_078fk")
+skill_scene1 = ExtResource("7_078fk")
+skill_scene2 = ExtResource("12_ustka")
 obstacle_scene = ExtResource("6_o8o8p")
 rect_limit_spawn = Rect2(-3401, -1834, 6809, 3679)
 
@@ -82,6 +84,8 @@ position = Vector2(544, -262)
 [node name="SpawnPointCooldown" type="Timer" parent="."]
 wait_time = 40.0
 autostart = true
+
+[node name="Skills" type="Node2D" parent="SpawnPointCooldown"]
 
 [node name="SpawnobstacleCooldown" type="Timer" parent="."]
 wait_time = 6.0

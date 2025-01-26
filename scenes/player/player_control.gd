@@ -5,11 +5,16 @@ class_name Player
 @onready var sprite: AnimatedSprite2D = $Cat
 @onready var collider: CollisionShape2D = $CollisionShape2D
 
+@export var cat_speed: float = 400
 @export var acceleration: float = 50
 @export var friction_coef: float = 3
 @export var max_speed: float = 300
 
+var tween: Tween
 var is_alive: bool = true
+
+func  _ready() -> void:
+	tween = get_tree().create_tween()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -22,15 +27,22 @@ func _process(delta: float) -> void:
 		velocity += (acceleration * direction + friction) * delta
 		velocity = velocity.normalized() * min(velocity.length(), max_speed)
 		move_and_slide()
+		
+		sprite.position += cat_speed * direction * delta
+		collider.position += cat_speed * direction * delta
+
 		_animate(direction)
 
 var prev_dir: Vector2 = Vector2.ZERO
 
+
 func _animate(direction: Vector2) -> void:
 	var radius = bubble.get_radius()
 	var displacement = direction * (radius - 38)
-	sprite.position = displacement
-	collider.position = displacement
+	var distance = sprite.position.distance_to(Vector2.ZERO)
+	if distance > displacement.length():
+		sprite.position = displacement
+		collider.position = displacement
 	
 	#sceglie l'animazione
 	if direction != Vector2.ZERO:

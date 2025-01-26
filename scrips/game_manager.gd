@@ -2,7 +2,8 @@ extends Node
 
 @export var player_scene: PackedScene
 @export var skill_point_scene: PackedScene
-@export var skill_scene: PackedScene
+@export var skill_scene1: PackedScene
+@export var skill_scene2: PackedScene
 @export var obstacle_scene: PackedScene
 var player: Player
 

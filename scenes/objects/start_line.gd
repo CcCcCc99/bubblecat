@@ -4,6 +4,7 @@ class_name StartLine
 @export var malus: int = 5
 
 var finish: FinishArea
+var arrow: Arrow
 
 func _ready() -> void:
 	#qui prendo in la finish area che dovrà essere inserita lì in fase di creazione del livello
@@ -13,6 +14,9 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
+		var p = body as Player
+		arrow = p.get_node("Cat").get_node("Arrow")
+		arrow.enable(finish)
 		finish.enable()
 		finish.arrived.connect(_stop_timer)
 		$TimeToFinish.start()
@@ -20,12 +24,14 @@ func _on_body_entered(body: Node2D) -> void:
 func _stop_timer() -> void:
 	$TimeToFinish.stop()
 	$Cooldown.start()
+	arrow.disable()
 	disable()
 
 func _on_time_to_finish_timeout() -> void:
 	finish.disable()
 	PointsManager.score -= malus
 	$Cooldown.start()
+	arrow.disable()
 	disable()
 
 func _on_cooldown_timeout() -> void:
