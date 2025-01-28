@@ -27,7 +27,6 @@ func _on_body_entered(body: Node2D) -> void:
 			await arrow.ready
 		arrow.enable(finish)
 		finish.enable()
-		$Cooldown.stop()
 		$TimeToFinish.start()
 		hide_start_line()
 

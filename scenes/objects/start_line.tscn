@@ -18,10 +18,12 @@ texture = ExtResource("1_84uxy")
 shape = SubResource("RectangleShape2D_v5gqb")
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 120.0
+one_shot = true
 
 [node name="TimeToFinish" type="Timer" parent="."]
-wait_time = 40.0
+wait_time = 45.0
+one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

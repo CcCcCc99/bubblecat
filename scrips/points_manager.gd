@@ -11,7 +11,7 @@ func restart():
 	power_up_index = 0
 	skill_points = 0
 	score = 0
-	armor_enabled = 0
+	armor_enabled = false
 	gun_level = 0
 
 var power_ups = [
