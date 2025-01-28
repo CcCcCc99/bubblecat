@@ -13,6 +13,7 @@ class_name Player
 var tween: Tween
 var is_alive: bool = true
 
+
 func  _ready() -> void:
 	tween = get_tree().create_tween()
 

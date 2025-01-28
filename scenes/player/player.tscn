@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1apm1lr35uti" path="res://assets/sprites/gatto/gatto4.png" id="5_sjhy8"]
 [ext_resource type="Texture2D" uid="uid://b6unkcr1dehew" path="res://assets/sprites/gatto/gatto5.png" id="6_gle5u"]
 [ext_resource type="Texture2D" uid="uid://cf5skocaecgh4" path="res://assets/sprites/gatto/gatto6.png" id="7_drpbh"]
-[ext_resource type="PackedScene" uid="uid://bb8ncp3l5k11r" path="res://scenes/skills/spara_bolle.tscn" id="8_ni778"]
+[ext_resource type="PackedScene" path="res://scenes/skills/spara_bolle.tscn" id="8_ni778"]
 [ext_resource type="Texture2D" uid="uid://bevq3sdcxicyh" path="res://assets/sprites/Bollicineanimation/Bollicine0004.png" id="8_wa7su"]
 [ext_resource type="Texture2D" uid="uid://c1or1kis7pk1" path="res://assets/sprites/Bollicineanimation/Bollicine0006.png" id="9_2imtg"]
 [ext_resource type="Texture2D" uid="uid://bihconlj3yg58" path="res://assets/sprites/bolla/bolla5.png" id="9_csv0p"]
@@ -177,6 +177,15 @@ autostart = true
 
 [node name="Invulnerability" type="Timer" parent="Bubble"]
 wait_time = 1.5
+one_shot = true
+
+[node name="InvulnerabilityCounter" type="Label" parent="." groups=["InvulnerabilityCounter"]]
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 45.0
+offset_bottom = 21.0
+text = "0
+"
 
 [connection signal="death" from="Bubble" to="." method="_on_bubble_death"]
 [connection signal="death" from="Bubble" to="Bubble" method="_on_death"]

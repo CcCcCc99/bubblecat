@@ -78,30 +78,35 @@ position = Vector2(-1162, -1375)
 
 [node name="StartLine" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
 position = Vector2(-1063, 1027)
+collision_layer = 2
 
 [node name="FinishArea" parent="TargetSpace/StartLine" instance=ExtResource("9_3ioum")]
 position = Vector2(1607, -1258)
 
 [node name="StartLine5" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
 position = Vector2(1114, -1029)
+collision_layer = 2
 
 [node name="FinishArea" parent="TargetSpace/StartLine5" instance=ExtResource("9_3ioum")]
 position = Vector2(-872, 2330)
 
 [node name="StartLine4" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
 position = Vector2(-2086, -736)
+collision_layer = 2
 
 [node name="FinishArea" parent="TargetSpace/StartLine4" instance=ExtResource("9_3ioum")]
 position = Vector2(-46, 1645)
 
 [node name="StartLine3" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
 position = Vector2(1695, 1404)
+collision_layer = 2
 
 [node name="FinishArea" parent="TargetSpace/StartLine3" instance=ExtResource("9_3ioum")]
 position = Vector2(-2725, -1312)
 
 [node name="StartLine2" parent="TargetSpace" instance=ExtResource("8_j8xm8")]
 position = Vector2(-512, -884)
+collision_layer = 2
 
 [node name="FinishArea" parent="TargetSpace/StartLine2" instance=ExtResource("9_3ioum")]
 position = Vector2(2764, -20)

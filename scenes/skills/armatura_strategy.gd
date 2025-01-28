@@ -8,15 +8,13 @@ var armor_sprite_node: Sprite2D
 
 func _ready() -> void:
 	player = get_parent()
-	player.bubble.invulnerable = true
+	player.bubble.invulnerable_count += 1
 	armor_sprite_node = ARMOR_SPRITE.instantiate()
 	player.bubble.add_child(armor_sprite_node)
 
 
 func _on_timer_timeout() -> void:
-	# se muori con l'invulnerabilità a dosso è un problema
-	# da sistemare
-	player.bubble.death
-	player.bubble.invulnerable = false
-	armor_sprite_node.queue_free()
-	queue_free()
+	if not player.bubble.is_dead:
+		player.bubble.invulnerable_count -= 1
+		armor_sprite_node.queue_free()
+		queue_free()

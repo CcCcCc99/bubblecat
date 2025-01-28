@@ -2,10 +2,15 @@ extends Area2D
 class_name MainBubble
 
 @onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var invulnerability_timer: Timer = $Invulnerability
 
 signal death
 
-var invulnerable: bool = false
+var invulnerable_count: int = 0:
+	set(value):
+		var counter_label: Label = get_tree().get_nodes_in_group("InvulnerabilityCounter")[0] as Label
+		counter_label.text = str(value)
+		invulnerable_count = value
 var is_dead = false
 @export var max_o2: int = 50
 @export var initial_o2: int = 20
@@ -27,6 +32,7 @@ var original_modulation
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	o2 = initial_o2
+	invulnerable_count = 0
 	original_modulation = sprite.modulate
 
 func _on_oxigen_consumption_timeout() -> void:
@@ -39,17 +45,17 @@ func _calculate_scale() -> Vector2:
 	return Vector2.ONE * scalar_scale
 
 func start_invulnerability():
-	invulnerable = true
-	$Invulnerability.start()
+	invulnerable_count += 1
+	invulnerability_timer.start()
 	sprite.modulate = Color.WHITE
 
 func take_damage(damage: int):
-	if not invulnerable:
+	if invulnerable_count == 0:
 		start_invulnerability()
 		o2 -= damage
 
 func end_invulnerability():
-	invulnerable = false
+	invulnerable_count -= 1
 	sprite.modulate = original_modulation
 
 func get_radius() -> float:
@@ -62,8 +68,8 @@ func _on_death() -> void:
 func _on_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "pop":
 		hide()
-		await get_tree().create_timer(3).timeout
-		get_tree().get_nodes_in_group("gameovermenu")[0].show()
+		await get_tree().create_timer(1.5).timeout
+		get_tree().get_nodes_in_group("gameovermenu")[0].show_score()
 		for audio in get_tree().get_nodes_in_group("audio"):
 			if (not audio.playing) and audio.name == "AudioGameOver":
 				audio.play()

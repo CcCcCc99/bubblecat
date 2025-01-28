@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bmbtvyvub2wgf"]
+[gd_scene load_steps=29 format=3 uid="uid://bmbtvyvub2wgf"]
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_gaju6"]
 [ext_resource type="AudioStream" uid="uid://bk8d46amr61ms" path="res://assets/sound/MeowSphereMainMenu.mp3" id="2_mohlv"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cshbocbcn3psb" path="res://assets/menu/button/button_hover_2.png" id="8_44epq"]
 [ext_resource type="Texture2D" uid="uid://nugjq03rxw7w" path="res://assets/menu/launcher/background_0.png" id="9_yfwra"]
 [ext_resource type="Texture2D" uid="uid://6rg0hxjgsa6c" path="res://assets/menu/launcher/background_1.png" id="10_7mjhd"]
+[ext_resource type="Script" path="res://scrips/ui/custom_button.gd" id="10_uepg1"]
+[ext_resource type="BitMap" uid="uid://eklitbctsnxp" path="res://assets/menu/button/button_mask.bmp" id="10_xxs5e"]
 [ext_resource type="Texture2D" uid="uid://b3k2uf5jhmlhy" path="res://assets/menu/launcher/background_10.png" id="11_rjfsa"]
 [ext_resource type="Script" path="res://scenes/launcher.gd" id="12_su5pm"]
 [ext_resource type="Texture2D" uid="uid://b5u4yp47jhqmx" path="res://assets/menu/launcher/background_2.png" id="12_uy1um"]
@@ -33,13 +35,6 @@ frame_0/texture = ExtResource("7_81nac")
 frame_0/duration = 0.2
 frame_1/texture = ExtResource("8_44epq")
 frame_1/duration = 0.2
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_tt01m"]
-frames = 2
-frame_0/texture = ExtResource("7_81nac")
-frame_0/duration = 0.1
-frame_1/texture = ExtResource("8_44epq")
-frame_1/duration = 0.1
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_k3ep2"]
 frames = 11
@@ -170,16 +165,22 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.656221, 0.691099)
 pivot_offset = Vector2(-1.055, 1.42)
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../PlayButton")
+mouse_filter = 2
+button_mask = 0
 texture_normal = ExtResource("5_qqs3p")
 texture_pressed = ExtResource("6_avero")
-texture_hover = SubResource("AnimatedTexture_jhfbc")
+texture_focused = SubResource("AnimatedTexture_jhfbc")
+texture_click_mask = ExtResource("10_xxs5e")
+script = ExtResource("10_uepg1")
 
 [node name="Label" type="Label" parent="Menu/ExitButton"]
 layout_mode = 0
 offset_left = 151.416
-offset_top = 136.828
+offset_top = 151.297
 offset_right = 335.416
-offset_bottom = 242.828
+offset_bottom = 257.297
 theme_override_font_sizes/font_size = 72
 text = "EXIT
 "
@@ -200,16 +201,22 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.656221, 0.691099)
 pivot_offset = Vector2(-1.055, 1.42)
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+mouse_filter = 2
 texture_normal = ExtResource("5_qqs3p")
 texture_pressed = ExtResource("6_avero")
-texture_hover = SubResource("AnimatedTexture_tt01m")
+texture_focused = SubResource("AnimatedTexture_jhfbc")
+texture_click_mask = ExtResource("10_xxs5e")
+script = ExtResource("10_uepg1")
+autofocus = true
 
 [node name="Label" type="Label" parent="Menu/PlayButton"]
 layout_mode = 0
 offset_left = 151.416
-offset_top = 136.828
+offset_top = 151.297
 offset_right = 335.416
-offset_bottom = 242.828
+offset_bottom = 257.297
 theme_override_font_sizes/font_size = 72
 text = "PLAY"
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpt2uyj8dopny"]
 
+[ext_resource type="Script" path="res://game_over_menu.gd" id="1_aobr7"]
 [ext_resource type="Material" path="res://shaders/vignette_material.tres" id="1_w4lrl"]
 [ext_resource type="Texture2D" uid="uid://ha7awidw16yq" path="res://assets/gameover/game_over_vignette.png" id="2_oqd07"]
 [ext_resource type="FontFile" uid="uid://cch1mojodba4m" path="res://assets/Baby Gemoy.ttf" id="3_3nwch"]
-[ext_resource type="Script" path="res://scrips/retry_button.gd" id="4_cc12b"]
-[ext_resource type="Script" path="res://scrips/exit_button.gd" id="5_rd4ay"]
+[ext_resource type="Texture2D" uid="uid://cm8wp3171mcjg" path="res://assets/menu/button/gameover_button_hover.png" id="6_mt3uu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t44l7"]
 bg_color = Color(1, 1, 1, 0.337255)
@@ -13,10 +13,10 @@ border_width_top = 15
 border_width_right = 15
 border_width_bottom = 15
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="GameOverMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aobr7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = ExtResource("1_w4lrl")
@@ -54,9 +55,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -461.5
-offset_top = -390.0
+offset_top = -455.0
 offset_right = 461.5
-offset_bottom = -262.0
+offset_bottom = -327.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -73,10 +74,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -200.0
-offset_right = 300.0
-offset_bottom = 200.0
+offset_left = -464.0
+offset_top = -261.0
+offset_right = 465.0
+offset_bottom = 495.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_t44l7")
@@ -90,15 +91,73 @@ theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 60
 alignment = 1
 
-[node name="RetryButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-script = ExtResource("4_cc12b")
+theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/RetryButton"]
+[node name="HBoxContainer2" type="HFlowContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_3nwch")
+theme_override_font_sizes/font_size = 48
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_3nwch")
+theme_override_font_sizes/font_size = 48
+text = "000001"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HFlowContainer" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_3nwch")
+theme_override_font_sizes/font_size = 48
+text = "Highscore"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_3nwch")
+theme_override_font_sizes/font_size = 48
+text = "000001"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RetryButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+texture_focused = ExtResource("6_mt3uu")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/RetryButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -118,12 +177,15 @@ text = "RETRY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ExitButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="ExitButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-script = ExtResource("5_rd4ay")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_focused = ExtResource("6_mt3uu")
+stretch_mode = 3
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ExitButton"]
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ExitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -143,5 +205,5 @@ text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/RetryButton" to="PanelContainer/MarginContainer/VBoxContainer/RetryButton" method="_on_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ExitButton" to="PanelContainer/MarginContainer/VBoxContainer/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/ExitButton" to="." method="_on_exit_button_pressed"]

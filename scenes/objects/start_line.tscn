@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqh4n7bvvjup0"]
+[gd_scene load_steps=4 format=3 uid="uid://dqh4n7bvvjup0"]
 
 [ext_resource type="Script" path="res://scenes/objects/start_line.gd" id="1_7kvg6"]
 [ext_resource type="Texture2D" uid="uid://bjh0dxsrhcyke" path="res://assets/sprites/target/Punto_di_partenza.png" id="1_84uxy"]
-[ext_resource type="PackedScene" uid="uid://bndljt0168bwo" path="res://scenes/objects/arrow.tscn" id="2_ppyg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5gqb"]
 size = Vector2(146, 20)
 
 [node name="StartLine" type="Area2D"]
 script = ExtResource("1_7kvg6")
-arrow_scene = ExtResource("2_ppyg5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 15.8)
@@ -23,7 +21,7 @@ shape = SubResource("RectangleShape2D_v5gqb")
 wait_time = 90.0
 
 [node name="TimeToFinish" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 40.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

@@ -16,7 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func enable():
 	$CollisionShape2D.set_deferred("disabled", false)
-	show()
+	visible = true
 
 func disable():
 	$CollisionShape2D.set_deferred("disabled", true)
