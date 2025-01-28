@@ -32,7 +32,6 @@ MainBubble="La bolla che circonda il giocatore"
 Obstacle="Tutti gli ostacoli"
 RegenBubble="Le bolle di ossigeno che si rigenerano"
 gameovermenu=""
-InvulnerabilityCounter=""
 
 [input]
 

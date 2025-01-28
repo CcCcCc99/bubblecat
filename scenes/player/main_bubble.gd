@@ -6,11 +6,7 @@ class_name MainBubble
 
 signal death
 
-var invulnerable_count: int = 0:
-	set(value):
-		var counter_label: Label = get_tree().get_nodes_in_group("InvulnerabilityCounter")[0] as Label
-		counter_label.text = str(value)
-		invulnerable_count = value
+var invulnerable_count: int = 0
 var is_dead = false
 @export var max_o2: int = 50
 @export var initial_o2: int = 20

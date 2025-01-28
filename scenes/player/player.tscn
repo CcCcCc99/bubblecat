@@ -179,14 +179,6 @@ autostart = true
 wait_time = 1.5
 one_shot = true
 
-[node name="InvulnerabilityCounter" type="Label" parent="." groups=["InvulnerabilityCounter"]]
-offset_left = 5.0
-offset_top = -2.0
-offset_right = 45.0
-offset_bottom = 21.0
-text = "0
-"
-
 [connection signal="death" from="Bubble" to="." method="_on_bubble_death"]
 [connection signal="death" from="Bubble" to="Bubble" method="_on_death"]
 [connection signal="animation_finished" from="Bubble/Sprite2D" to="Bubble" method="_on_sprite_2d_animation_finished"]
